@@ -9,6 +9,14 @@ import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action';
 import CheckoutPage from "./pages/checkout/checkout.component";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
 
 class App extends React.Component {
 
@@ -41,9 +49,11 @@ class App extends React.Component {
     componentWillUnmount(){
       this.unsubscribeFromAuth();
     }
+    
 
     render(){
       return (
+        // <ThemeProvider theme={darkTheme}>
         <div>
           <Header />
           <Switch>
@@ -53,6 +63,7 @@ class App extends React.Component {
             <Route exact path ='/signin' render={() => this.props.currentUser ? (<Redirect to = '/' />) : (<SignInAndSignUp />)} />
           </Switch>
         </div>
+        // </ThemeProvider>
       );
     }
 }

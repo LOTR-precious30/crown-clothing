@@ -3,6 +3,7 @@ import SHOP_DATA from './shop.data';
 import COllectionPreview from '../../components/collection-preview/collection-preview.component'
 import CollectionPreview from '../../components/collection-preview/collection-preview.component';
 
+
 class ShopPage extends React.Component{
     constructor(props) {
         super(props);
@@ -11,7 +12,7 @@ class ShopPage extends React.Component{
             collections: SHOP_DATA
         }
     }
-
+    
     render(){
         const { collections } = this.state;
         return  (<div>
